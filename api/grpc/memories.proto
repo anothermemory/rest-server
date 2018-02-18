@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message GetMemoriesRequest {
+}
+
+message GetMemoriesResponse {
+    repeated string names = 1;
+}
+
+message GetMemoriesStreamResponse {
+    string name = 1;
+}
+
+service Memories {
+    rpc GetMemories (GetMemoriesRequest) returns (GetMemoriesResponse) {}
+    rpc GetMemoriesStream (GetMemoriesRequest) returns (stream GetMemoriesStreamResponse) {}
+}
+
